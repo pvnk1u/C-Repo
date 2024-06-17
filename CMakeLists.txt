@@ -3,4 +3,4 @@ project(c_repo C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(c_repo chapter2/pun.c)
+add_executable(c_repo chapter2/dweight.c)
