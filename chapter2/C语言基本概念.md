@@ -206,3 +206,62 @@ int height = 8;
 
 
 
+为了获取输入，就要用到scanf函数。它是C函数库中与printf相对应的函数。scanf中的字母f和printf中的字母f含义相同，都是表示“格式化”的意思。scanf函数和printf函数都需要使用格式串（format string）来指定输入或输出数据的形式。scanf函数需要知道将获得的输入数据的格式，而printf函数需要知道输出数据的显示格式。
+
+
+
+为了读入一个int型值，可以使用下面的scanf函数调用：
+
+```c
+scanf("%d",&i); // read an integer;stores into i
+```
+
+其中，字符串"%d"说明scanf读入的是一个整数，而i是一个int型变量，用来存储scanf读入的输入。&运算符在这里很难解释清楚，现在只说明它在使用scanf函数时通常是（不总是）必需的。
+
+
+
+读入一个float型值时，需要一个形式略有不同的scanf调用：
+
+```c
+scanf("%f",&x); // read a float value;stores into x
+```
+
+%f只用于float型变量，因此这里假设x是一个float型变量。字符串"%f"告诉scanf函数去寻找一个float格式的输入值（可以含有小数点，但不是必须有）。
+
+
+
+下面是计算空间质量程序的一个改进版dweight.c。在这个版本的程序中，用户可以录入尺寸。注意，每一个scanf函数调用都紧跟在一个printf函数调用的后面。这样做可以提示用户何时输入，以及输入什么。
+
+```c
+#include<stdio.h>
+
+int main(void){
+    int height,length,width,volume,weight;
+
+    printf("Enter height of box: ");
+    scanf("%d",&height);
+    printf("Enter length of box: ");
+    scanf("%d",&length);
+    printf("Enter width of box: ");
+    scanf("%d",&width);
+    volume = height * length * width;
+    weight = (volume + 165) / 166;
+
+    printf("Volume(cubic inches): %d\n",volume);
+    printf("Dimensional weight (pounds): %d\n",weight);
+
+    return 0;
+}
+
+```
+
+
+
+提示用户输入的信息（提示符）通常不应以换行符结束，因为我们希望用户在同一行输入。这样，当用户敲回车键时，光标会自动移动到下一行，因此就不需要程序通过显示换行符来终止当前行了。
+
+
+
+dweight2.c还存在一个问题：如果用户输入的不是数值，程序就会出问题。
+
+
+
