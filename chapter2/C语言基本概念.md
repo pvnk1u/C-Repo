@@ -265,3 +265,99 @@ dweight2.c还存在一个问题：如果用户输入的不是数值，程序就�
 
 
 
+## 定义常量的名字
+
+当程序含有常量时，建议给这些常量命名。程序dweight.c和程序dweight2.c都用到了常量166。在后期阅读程序时也许有些人会不明白这个常量的含义。所以可以采用称为宏定义（macro defination）的特性给常量命名：
+
+```c
+#define INCHES_PER_POUND 166
+```
+
+这里的#define是预处理指令，类似于前面所讲的#include，因而在此行的结尾也没有分号。
+
+
+
+当对程序进行编译时，预处理器会把每一个宏替换为其表示的值。例如，语句
+
+```c
+weight = (volume +INCHES_PER_POUND -1 ) /INCHES_PER_POUND;
+```
+
+将变为：
+
+```c
+weight = (volume + 166 - 1) / 166
+```
+
+效果就如同在前一个地方写的是最后一条语句。
+
+
+
+此外，还可以利用宏来定义表达式：
+
+```c
+#define RECIPROCAL_OF_PI (1.0f / 3.14159f)
+```
+
+**当宏包含运算符时，必须用括号把表达式括起来。**
+
+
+
+### 华氏温度转换为摄氏温度
+
+下面的程序提示用户输入一个华氏温度，然后输出一个对应的摄氏温度。此程序的输出格式如下（跟前面的例子一样，用户的输入信息用下划线标注出来）：
+
+```c
+Enter Fahrenheit temperature: 212
+Celsius equivalent: 100.0
+```
+
+这段程序允许温度值不是整数，这也是摄氏温度显示为100.0而不是100的原因。
+
+
+
+完整程序：
+
+```c
+#include <stdio.h>
+
+#define FREEZING_PT 32.0f
+#define SCALE_FACTOR (5.0f / 9.0f)
+
+int main(void) {
+    float fahrenheit,celsius;
+
+    printf("Enter Fahrenheit temperature: ");
+    scanf("%f",&fahrenheit);
+
+    celsius = (fahrenheit - FREEZING_PT) * SCALE_FACTOR;
+
+	// 使用%.1f显示celsius的值时，小数点后只显示一位数字
+    printf("Celsius equivalent: %.1f\n",celsius);
+    return 0;
+}
+```
+
+语句
+
+```c
+celsius = (fahrenheit - FREEZING_PT) * SCALE_FACTOR;
+```
+
+把华氏温度转换为相应的摄氏温度。因为FREEZING_PT表示的是常量32.0f，而SCALE_FACTOR表示的是表达式（5.0f / 9.0f），所以编译器会把这条语句看成是：
+
+```c
+celsius = (fahrenheit - 32.0f) * (5.0f / 9.0f);
+```
+
+在定义SCALE_FACTOR时，表达式采用（5.0f / 9.0f）的形式而不是(5 / 9)的形式，这一点非常重要，因为如果两个整数相除，那么C语言会对结果向下取整。表达式(5/9)的值将为0，这并不是我们想要的。
+
+
+
+最后的printf函数调用输出相应的摄氏温度：
+
+```c
+printf("Celsius equivalent: %.1f\n",celsius);
+```
+
+注意，使用%.1f显示celsius的值时，小数点后只显示一位数字。
