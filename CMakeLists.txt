@@ -4,4 +4,4 @@ project(c_repo C)
 set(CMAKE_C_STANDARD 99)
 
 add_executable(c_repo
-        chapter2/multiple_calc_horner.c)
+        chapter2/cash_calc.c)
