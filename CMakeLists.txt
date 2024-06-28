@@ -4,4 +4,4 @@ project(c_repo C)
 set(CMAKE_C_STANDARD 99)
 
 add_executable(c_repo
-        chapter3/add_frac_new.c)
+        chapter4/reverse_three_digit_number.c)
