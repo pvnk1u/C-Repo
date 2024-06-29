@@ -4,4 +4,5 @@ project(c_repo C)
 set(CMAKE_C_STANDARD 99)
 
 add_executable(c_repo
-        chapter4/reverse_three_digit_number.c)
+        chapter4/upc_with_single_input.c
+)

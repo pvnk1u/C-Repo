@@ -9,7 +9,7 @@
 #include <stdio.h>
 
 int main(void) {
-   int number;
+    int number;
     printf("Enter a three-digit number:");
     scanf("%d",&number);
     int firstNo = number%10;
