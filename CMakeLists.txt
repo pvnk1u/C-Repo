@@ -4,5 +4,5 @@ project(c_repo C)
 set(CMAKE_C_STANDARD 99)
 
 add_executable(c_repo
-        chapter5/number_digit.c
+        chapter5/Conveet_Time.c
 )
