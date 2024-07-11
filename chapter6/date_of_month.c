@@ -29,6 +29,7 @@ int main(void) {
         if (i < count)
             printf("   ");
         else
+            // 限定占3位，不足三位默认靠右展示,%.3d是默认占3位，不足3位左侧补0
             printf("%3d", day++);
         if (i % 7 == 0)
             printf("\n");
