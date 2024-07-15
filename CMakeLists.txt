@@ -4,5 +4,5 @@ project(c_repo C)
 set(CMAKE_C_STANDARD 99)
 
 add_executable(c_repo
-        chapter6/date_of_month.c
+        chapter7/sum_in_long.c
 )
