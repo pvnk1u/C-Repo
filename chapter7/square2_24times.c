@@ -16,7 +16,12 @@ int main(void) {
  printf("Enter number of entries in table: ");
  scanf("%d",&n);
 
- getchar(); /* ungets '\n' from buffer */
+ /**
+  * 先调用 getchar() 函数以清除输入缓冲区中残留的换行符。这是因为在 scanf() 读取整数后，换行符仍留在缓冲区中。
+  * 如果不先执行一次getchar()函数，在下面第循环执行到i=24的时候，getchar()获取到的是输入n时录入的回车键
+  */
+ getchar();
+
 
  for (i = 1;i<=n;i++) {
    printf("%10d%10d\n",i,i*i);
