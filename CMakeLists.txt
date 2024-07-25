@@ -4,5 +4,5 @@ project(c_repo C)
 set(CMAKE_C_STANDARD 99)
 
 add_executable(c_repo
-        chapter7/sum_double.c
+        chapter7/convert_to_phone_number.c
 )
