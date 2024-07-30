@@ -4,5 +4,5 @@ project(c_repo C)
 set(CMAKE_C_STANDARD 99)
 
 add_executable(c_repo
-        chapter7/calc_average_length.c
+        chapter7/calc_square_root.c
 )
