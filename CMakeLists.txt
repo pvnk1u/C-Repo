@@ -4,5 +4,5 @@ project(c_repo C)
 set(CMAKE_C_STANDARD 99)
 
 add_executable(c_repo
-        chapter8/deal.c
+        chapter8/reverse_array_using_vla.c
 )
