@@ -26,7 +26,7 @@ int main(void) {
         n /=10;
     }
 
-    printf(" Enter a number:");
+    printf("Repeated digit(s): ");
     for (int i =0;i<N;i++) {
         if (digit_seen[i] >1 ) {
             printf("%d ",i);
