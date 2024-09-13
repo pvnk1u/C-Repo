@@ -4,5 +4,5 @@ project(c_repo C)
 set(CMAKE_C_STANDARD 99)
 
 add_executable(c_repo
-        chapter5/Bool.c
+        chapter11/maxmin.c
 )
