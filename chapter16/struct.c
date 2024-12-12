@@ -25,5 +25,7 @@ int main() {
         .first = -10,
         .four = 0.25
     };
+    // 复合字面量声明结构
+    struct InitMember member1 = (struct InitMember){-10,3.131590,"method one",0.25};
 
 }
