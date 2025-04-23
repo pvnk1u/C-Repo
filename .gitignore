@@ -2,3 +2,5 @@
 .idea/
 .obsidian
 .DS_Store
+.vscode/
+/build
