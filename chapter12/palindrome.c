@@ -9,6 +9,8 @@
  */
 
 #include <stdio.h>
+#include <stdbool.h>
+#include <ctype.h>
 
 #define LENGTH 100
 
@@ -17,12 +19,28 @@ int main(int argc, char const *argv[]){
     char a[LENGTH];
     int i = 0;
     char c;
-    while((c=getchar()) != '\0' && i< LENGTH -1){
+    while((c=getchar()) != '\n' && i< LENGTH -1){
         a[i++] = c;
     }
     a[i] = '\0';
     int startIndex = 0;
     int endIndex= i-1;
-    
+    bool result = true;
+    while(startIndex < endIndex){
+      // 跳过非字母字符
+      while (!isalpha(a[startIndex]) && startIndex < endIndex) startIndex++;
+      while (!isalpha(a[endIndex]) && startIndex < endIndex) endIndex--;
+      if(tolower(a[startIndex]) != tolower(a[endIndex])){
+        result = false;
+        break;
+      }
+      startIndex++;
+      endIndex--;
+    }
+    if(result){
+      printf("Palindrome");
+    }else{
+      printf("Not a palindrome");
+    }
     return 0;
 }
